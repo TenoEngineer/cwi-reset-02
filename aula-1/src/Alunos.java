@@ -9,8 +9,6 @@ public class Alunos {
         this.nomeAluno = nomeAluno;
         this.notaFinal = notaFinal;
 
-        System.out.println("Nome do Aluno: " + nomeAluno + "; Nota Final: " + notaFinal);
-
     }
 
     public boolean isSituacaoAluno() {

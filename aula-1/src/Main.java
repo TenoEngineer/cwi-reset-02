@@ -8,29 +8,20 @@ public class Main {
         System.out.println("Hello World");
 
         //EXERCÍCIO 1
-        Calculadora hp = new Calculadora();
-        int resultadoSoma = hp.soma(5, 5);
-        System.out.println(resultadoSoma);
-
-        Calculadora subt = new Calculadora();
-        int resultadoSubitrai = subt.subtrai(20, 10);
-        System.out.println(resultadoSubitrai);
-
-        Calculadora mult = new Calculadora();
-        int resultadoMultiplica = mult.multiplica(2,5);
-        System.out.println(resultadoMultiplica);
-
-        Calculadora div = new Calculadora();
-        int resultadoDivide = div.divide(20,2);
-        System.out.println(resultadoDivide);
+        Calculadora hp = new Calculadora(10,20);
+        System.out.println("Resultado Soma: " + hp.getSoma());
+        System.out.println("Resultado Subtrai: " + hp.getSubtrai());
+        System.out.println("Resultado Multiplica: " + hp.getMultiplica());
+        System.out.println("Resultado Divide: " + hp.getDivide());
 
         //EXERCÍCIO 2
-        Camparador comp = new Camparador();
-        boolean resultadoMenorQue = comp.menorQue(10,5);
-        System.out.println(resultadoMenorQue);
+        Camparador compara = new Camparador(5,6);
+        System.out.println("Valor1 é maior que Valor2? " + compara.isComparacao());
 
         //EXERCÍCIO 3
-        Alunos heitor = new Alunos("Heitor", 8.548);
+        Alunos heitor = new Alunos("Heitor", 3);
+        System.out.println("Nome: " + heitor.getNomeAluno());
+        System.out.println("Nota: " + heitor.getNotaFinal());
         System.out.println("Aluno aprovado: " + heitor.isSituacaoAluno());
 
     }
