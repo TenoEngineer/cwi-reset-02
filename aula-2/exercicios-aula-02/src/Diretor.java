@@ -1,5 +1,3 @@
-package exercicio;
-
 public class Diretor {
 
     private String nome;

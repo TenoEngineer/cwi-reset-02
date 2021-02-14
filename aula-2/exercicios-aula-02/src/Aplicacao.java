@@ -1,5 +1,3 @@
-package exercicio;
-
 public class Aplicacao {
     public static void main(String[] args) {
         Diretor diretor = new Diretor("Chistopher Nolan", 50, 3);

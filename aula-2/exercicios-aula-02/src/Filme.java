@@ -1,7 +1,4 @@
-package exercicio;
-
 public class Filme {
-
     private String nome;
     private String descricao;
     private double duracao;
@@ -25,4 +22,3 @@ public class Filme {
         System.out.println("Nome do Diretor: " + this.diretor.getNome());
     }
 }
-
