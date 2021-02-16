@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d438ce30-785a-4a18-8a63-035e81fe4c4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Ator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Genero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Pessoa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exemplo/aula/Cargo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exemplo/aula/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicios-aula-02/src/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Aplicacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicios-aula-02/src/Diretor.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Diretor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/aula-2/exemplo/aula/Aplicacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/aula-2/exemplo/aula/Aplicacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/aula-2/exemplo/aula/Funcionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/aula-2/exemplo/aula/Funcionario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/exercicios-aula-02/Aplicacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/exercicios-aula-02/Aplicacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/exercicios-aula-02/Diretor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/exercicios-aula-02/Diretor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exemplo/aula/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exemplo/aula/Aplicacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exemplo/aula/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exemplo/aula/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercicios-aula-02/src/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Filme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
