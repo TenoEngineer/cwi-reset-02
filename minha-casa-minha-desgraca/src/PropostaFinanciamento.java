@@ -10,76 +10,62 @@ public class PropostaFinanciamento {
      * o salário multiplicado pelo prazo deve ser equivalente a 65% e 60% do valor imóvel (respectivamente).
      */
 
-    private Beneficiario nome;
+    private Beneficiario beneficiario;
     private Imovel imovel;
-    private int prazoPagamento;
+    private int mesesParaPagamento;
     private UnidadeFederativa estado;
     private boolean resultado;
-    private Beneficiario salario;
 
     /*private Endereco endereco;
     private Imovel valor;
     private int proposta;*/
 
-    public PropostaFinanciamento(Beneficiario nome, Imovel imovel, int prazoPagamento, UnidadeFederativa estado, Beneficiario salario) {
-        this.nome = nome;
+    public PropostaFinanciamento(Beneficiario beneficiario, Imovel imovel, int mesesParaPagamento,
+                                 UnidadeFederativa estado) {
+        this.beneficiario = beneficiario;
         this.imovel = imovel;
-        this.prazoPagamento = prazoPagamento;
+        this.mesesParaPagamento = mesesParaPagamento;
         this.estado = estado;
-        this.salario = salario;
     }
 
-    public void validacao(String estado) {
-        if (estado.equals("SP")) {
-            boolean resultado = salario * prazoPagamento =>Imovel valor *0.65
-        }
-    }
+    boolean excessao = estado.getEstado().equals("SP") && estado.getEstado().equals("RJ");
+    boolean resultadoSP = beneficiario.getSalario() * mesesParaPagamento >= imovel.getValor() * 0.65;
+    boolean resultadoRJ = beneficiario.getSalario() * mesesParaPagamento >= imovel.getValor() * 0.60;
+    boolean resultadoGeral = beneficiario.getSalario() * mesesParaPagamento >= imovel.getValor() * 0.50;
+
 
     public void validarProposta() {
-        imovel.
-    }
-
-
-
-
-
-
-        if(UnidadeFederativa.getEstado().
-
-    equals(UnidadeFederativa.SP))
-
-    {
-        if (salario * mesesParaPagamento =>Imovel valor *0.65){
-        int proposta = 0;
-    } else if (Endereco.getEstado() == UnidadeFederativa.RJ) {
-        if (salario * mesesParaPagamento =>Imovel.getValor() * 0.60;){
-            int proposta = 0;
+        if (excessao) {
+            if (estado.getEstado().equals("SP")) {
+                if (resultadoSP) {
+                    imprimirPropostaAprovada();
+                } else if(resultadoSP) {
+                        imprimirPropostaNegada();
+                }
+            } else if (estado.getEstado().equals("RJ")) {
+                imprimirPropostaAprovada();
+            } else (estado.getEstado().equals("RJ")) {
+                imprimirPropostaNegada();
+            }
+        } else if (excessao) {
+            if (resultadoGeral) {
+                imprimirPropostaAprovada();
+            } else if(resultadoGeral) {
+                    imprimirPropostaNegada();
+            }
         }
-
     }
-
-    } else if(false)
-
-    {
-        if (salario * mesesParaPagamento =>Imovel.getValor() * 0.5;){
-        int proposta = 0;
-    } else if (false) {
-        int proposta = 1;
-    }
-    }
-
-}
 
     private void imprimirPropostaAprovada() {
         System.out.println("Nome: " + nome.getNome() + "\n" +
-                "Imóvel: " + "imovel" + "\n"
+                "Imóvel: " + imovel.getNome() + "\n"
                 + "Prazo: " + "prazo" + "\n" +
                 "Mas Tchê! Tu foi aprovado o/");
     }
 
     private void imprimirPropostaNegada() {
         System.out.println("Nome: " + nome.getNome() + "\n" +
-                "Imóvel: " + "imovel" + "\n"
+                "Imóvel: " + imovel.getNome() + "\n"
                 + "Prazo: " + "prazo" + "\n" +
                 "Bah cara! Tu não fostes aprovado :(");
     }
