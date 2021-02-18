@@ -39,8 +39,8 @@ public class PropostaFinanciamento {
             if (estado.getEstado().equals("SP")) {
                 if (resultadoSP) {
                     imprimirPropostaAprovada();
-                } else if(resultadoSP) {
-                        imprimirPropostaNegada();
+                } else if (resultadoSP) {
+                    imprimirPropostaNegada();
                 }
             } else if (estado.getEstado().equals("RJ")) {
                 imprimirPropostaAprovada();
@@ -50,21 +50,21 @@ public class PropostaFinanciamento {
         } else if (excessao) {
             if (resultadoGeral) {
                 imprimirPropostaAprovada();
-            } else if(resultadoGeral) {
-                    imprimirPropostaNegada();
+            } else if (resultadoGeral) {
+                imprimirPropostaNegada();
             }
         }
     }
 
     private void imprimirPropostaAprovada() {
-        System.out.println("Nome: " + nome.getNome() + "\n" +
+        System.out.println("Nome: " + beneficiario.getNome() + "\n" +
                 "Imóvel: " + imovel.getNome() + "\n"
                 + "Prazo: " + "prazo" + "\n" +
                 "Mas Tchê! Tu foi aprovado o/");
     }
 
     private void imprimirPropostaNegada() {
-        System.out.println("Nome: " + nome.getNome() + "\n" +
+        System.out.println("Nome: " + beneficiario.getNome() + "\n" +
                 "Imóvel: " + imovel.getNome() + "\n"
                 + "Prazo: " + "prazo" + "\n" +
                 "Bah cara! Tu não fostes aprovado :(");
