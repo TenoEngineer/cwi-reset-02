@@ -6,8 +6,6 @@ public class Filme {
     private int avaliacao;
     private Diretor diretor;
 
-    private
-
     public Filme(String nome, String descricao, double duracao, int anoLancamento, int avaliacao, Diretor diretor) {
         defineAvaliacao(avaliacao);
         validaNomeEDefineAvalicao(nome);
