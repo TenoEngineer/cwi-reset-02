@@ -2,12 +2,10 @@ public class Imovel {
 
     private int valor;
     private Endereco endereco;
-    private String nome;
 
-    public Imovel(int valor, Endereco endereco, String nome) {
+    public Imovel(int valor, Endereco endereco) {
         this.valor = valor;
         this.endereco = endereco;
-        this.nome = nome;
     }
 
     public String apresentacao() {
@@ -24,7 +22,5 @@ public class Imovel {
         return endereco;
     }
 
-    public String getNome() {
-        return nome;
-    }
 }
+

@@ -16,10 +16,6 @@ public class Endereco {
         this.estado = estado;
     }
 
-    public void imprimirEndereco(){
-        System.out.println(this.estado.getEstado() + " - " + this.cidade + " - " + this.bairro + " - " + this.logadouro  + ", " + this.numero + " (" + this.complemento + ")");
-    }
-
     public String getLogadouro() {
         return logadouro;
     }
@@ -30,10 +26,6 @@ public class Endereco {
 
     public String getComplemento() {
         return complemento;
-    }
-
-    public String getBairro() {
-        return bairro;
     }
 
     public String getCidade() {

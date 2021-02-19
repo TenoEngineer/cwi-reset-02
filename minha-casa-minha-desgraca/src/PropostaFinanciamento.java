@@ -11,46 +11,40 @@ public class PropostaFinanciamento {
      */
 
     private Beneficiario beneficiario;
-    private Imovel imovel;
+    private Imovel imovelEscolhido;
     private int mesesParaPagamento;
     private UnidadeFederativa estado;
-    private boolean resultado;
 
-    /*private Endereco endereco;
-    private Imovel valor;
-    private int proposta;*/
-
-    public PropostaFinanciamento(Beneficiario beneficiario, Imovel imovel, int mesesParaPagamento,
-                                 UnidadeFederativa estado) {
+    public PropostaFinanciamento(Beneficiario beneficiario, Imovel imovelEscolhido, int mesesParaPagamento) {
         this.beneficiario = beneficiario;
-        this.imovel = imovel;
+        this.imovelEscolhido = imovelEscolhido;
         this.mesesParaPagamento = mesesParaPagamento;
-        this.estado = estado;
     }
 
-    boolean excessao = estado.getEstado().equals("SP") && estado.getEstado().equals("RJ");
-    boolean resultadoSP = beneficiario.getSalario() * mesesParaPagamento >= imovel.getValor() * 0.65;
-    boolean resultadoRJ = beneficiario.getSalario() * mesesParaPagamento >= imovel.getValor() * 0.60;
-    boolean resultadoGeral = beneficiario.getSalario() * mesesParaPagamento >= imovel.getValor() * 0.50;
-
-
     public void validarProposta() {
+
+        boolean excessao = imovelEscolhido.getEndereco().getEstado() == UnidadeFederativa.SP &&
+                imovelEscolhido.getEndereco().getEstado() == UnidadeFederativa.RJ;
+        boolean resultadoSP = beneficiario.getSalario() * mesesParaPagamento >= imovelEscolhido.getValor() * 0.65;
+        boolean resultadoRJ = beneficiario.getSalario() * mesesParaPagamento >= imovelEscolhido.getValor() * 0.60;
+        boolean resultadoGeral = beneficiario.getSalario() * mesesParaPagamento >= imovelEscolhido.getValor() * 0.50;
+
         if (excessao) {
-            if (estado.getEstado().equals("SP")) {
+            if (imovelEscolhido.getEndereco().getEstado() == UnidadeFederativa.SP) {
                 if (resultadoSP) {
                     imprimirPropostaAprovada();
-                } else if (resultadoSP) {
+                } else {
                     imprimirPropostaNegada();
                 }
-            } else if (estado.getEstado().equals("RJ")) {
+            } else if (imovelEscolhido.getEndereco().getEstado() == UnidadeFederativa.RJ) {
                 imprimirPropostaAprovada();
-            } else (estado.getEstado().equals("RJ")) {
+            } else {
                 imprimirPropostaNegada();
             }
-        } else if (excessao) {
+        } else {
             if (resultadoGeral) {
                 imprimirPropostaAprovada();
-            } else if (resultadoGeral) {
+            } else {
                 imprimirPropostaNegada();
             }
         }
@@ -58,15 +52,15 @@ public class PropostaFinanciamento {
 
     private void imprimirPropostaAprovada() {
         System.out.println("Nome: " + beneficiario.getNome() + "\n" +
-                "Imóvel: " + imovel.getNome() + "\n"
-                + "Prazo: " + "prazo" + "\n" +
+                "Imóvel: " + imovelEscolhido.apresentacao() + "\n"
+                + "Prazo: " + mesesParaPagamento + "\n" +
                 "Mas Tchê! Tu foi aprovado o/");
     }
 
     private void imprimirPropostaNegada() {
         System.out.println("Nome: " + beneficiario.getNome() + "\n" +
-                "Imóvel: " + imovel.getNome() + "\n"
-                + "Prazo: " + "prazo" + "\n" +
+                "Imóvel: " + imovelEscolhido.apresentacao() + "\n"
+                + "Prazo: " + mesesParaPagamento + "\n" +
                 "Bah cara! Tu não fostes aprovado :(");
     }
 }
