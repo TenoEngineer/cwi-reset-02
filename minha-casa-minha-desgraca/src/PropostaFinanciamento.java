@@ -52,15 +52,16 @@ public class PropostaFinanciamento {
 
     private void imprimirPropostaAprovada() {
         System.out.println("Nome: " + beneficiario.getNome() + "\n" +
-                "Imóvel: " + imovelEscolhido.apresentacao() + "\n"
-                + "Prazo: " + mesesParaPagamento + "\n" +
+                "Imóvel: " + imovelEscolhido.apresentacao() + "\n" +
+                "Tipo: " + imovelEscolhido.getTipo() + "\n" +
+                "Prazo: " + mesesParaPagamento + "\n" +
                 "Mas Tchê! Tu foi aprovado o/");
     }
 
     private void imprimirPropostaNegada() {
         System.out.println("Nome: " + beneficiario.getNome() + "\n" +
-                "Imóvel: " + imovelEscolhido.apresentacao() + "\n"
-                + "Prazo: " + mesesParaPagamento + "\n" +
+                "Imóvel: " + imovelEscolhido.apresentacao() + "\n" +
+                "Tipo: " + imovelEscolhido.getTipo() + "\n" +
                 "Bah cara! Tu não fostes aprovado :(");
     }
 }

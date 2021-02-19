@@ -13,8 +13,6 @@ public class MinhaCasaMinhaDesgraca {
 
 
 
-
-
         /**
          * INÍCIO
          *
@@ -23,13 +21,13 @@ public class MinhaCasaMinhaDesgraca {
 
         Endereco endereco1 = new Endereco("A", 123, "A", "A",
                 "A", UnidadeFederativa.RS);
-        Imovel imovel1 = new Imovel(50000, endereco1);
+        Imovel imovel1 = new Casa(50000, endereco1, "Casa", "Grandão");
         Endereco endereco2 = new Endereco("A", 123, "A", "A",
                 "A", UnidadeFederativa.SP);
-        Imovel imovel2 = new Imovel(100000, endereco2);
+        Imovel imovel2 = new Apartamento(100000, endereco2, "Apartamento"  ,4);
         Endereco endereco3 = new Endereco("A", 123, "A", "A",
                 "A", UnidadeFederativa.RJ);
-        Imovel imovel3 = new Imovel(500000, endereco3);
+        Imovel imovel3 = new Apartamento(500000, endereco3, "Apartamento", 5);
 
         opcoesParaFinanciamento.registrarImovel(imovel1);
         opcoesParaFinanciamento.registrarImovel(imovel2);
