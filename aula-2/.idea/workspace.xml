@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d438ce30-785a-4a18-8a63-035e81fe4c4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../minha-casa-minha-desgraca/src/Apartamento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../minha-casa-minha-desgraca/src/Casa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula-3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula-3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula-3/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula-3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aula-3/aula-3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../minha-casa-minha-desgraca/out/production/minha-casa-minha-desgraca/Imovel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../minha-casa-minha-desgraca/out/production/minha-casa-minha-desgraca/Imovel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../minha-casa-minha-desgraca/src/Imovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../minha-casa-minha-desgraca/src/Imovel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../minha-casa-minha-desgraca/src/MinhaCasaMinhaDesgraca.java" beforeDir="false" afterPath="$PROJECT_DIR$/../minha-casa-minha-desgraca/src/MinhaCasaMinhaDesgraca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../minha-casa-minha-desgraca/src/PropostaFinanciamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/../minha-casa-minha-desgraca/src/PropostaFinanciamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercicios-aula-02/src/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Aplicacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercicios-aula-02/src/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Filme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +41,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../exercicios-aula-02/src/exercicio/Filme.java" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Application.Aplicacao (1)">
     <configuration name="Aplicacao (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

@@ -1,3 +1,8 @@
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 public class Filme {
     private String nome;
     private String descricao;
@@ -5,8 +10,10 @@ public class Filme {
     private int anoLancamento;
     private int avaliacao;
     private Diretor diretor;
+    private List<Pessoa> elenco;
 
-    public Filme(String nome, String descricao, double duracao, int anoLancamento, int avaliacao, Diretor diretor) {
+
+    public Filme(String nome, String descricao, double duracao, int anoLancamento, int avaliacao, Diretor diretor, List<Pessoa> elenco) {
         defineAvaliacao(avaliacao);
         validaNomeEDefineAvalicao(nome);
         this.nome = nome;
@@ -14,6 +21,7 @@ public class Filme {
         this.duracao = duracao;
         this.anoLancamento = anoLancamento;
         this.diretor = diretor;
+        this.elenco = elenco;
     }
 
     public void exibir() {
@@ -37,6 +45,15 @@ public class Filme {
         } else if ("Interstelar".equals(nome)){
             this.avaliacao = 5;
         }
+
     }
+
+    public void creditos(){
+        diretor.imprimirInformacoes();
+        for (Pessoa pessoa : elenco){
+            pessoa.imprimirInformacoes();
+        }
+    }
+
 
 }
