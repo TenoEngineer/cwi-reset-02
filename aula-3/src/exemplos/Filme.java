@@ -1,7 +1,6 @@
-import java.util.Collection;
-import java.util.Iterator;
+package exemplos;
+
 import java.util.List;
-import java.util.ListIterator;
 
 public class Filme {
     private String nome;
@@ -25,10 +24,10 @@ public class Filme {
     }
 
     public void exibir() {
-        System.out.println("Nome do Filme: " + this.nome);
+        System.out.println("Nome do exemplos.Filme: " + this.nome);
         System.out.println("Descrição: " + this.descricao);
         System.out.println("Duração: " + this.duracao);
-        System.out.println("Nome do Diretor: " + this.diretor.getNome());
+        System.out.println("Nome do exemplos.Diretor: " + this.diretor.getNome());
     }
 
     private void defineAvaliacao(int avaliacao) {
@@ -50,7 +49,7 @@ public class Filme {
 
     public void creditos(){
         System.out.println("********************  " + this.nome + "  ********************");
-        System.out.println("\n" + "----  Diretor  ----");
+        System.out.println("\n" + "----  exemplos.Diretor  ----");
         diretor.imprimirInformacoes();
         System.out.println("\n" + "--  Elenco  --");
         for (Pessoa pessoa : elenco){

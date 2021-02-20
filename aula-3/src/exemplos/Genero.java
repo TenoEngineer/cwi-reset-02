@@ -1,3 +1,5 @@
+package exemplos;
+
 public enum Genero {
     MASCULINO("Masculino"),
     FEMININO("Feminino"),

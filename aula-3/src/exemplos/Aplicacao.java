@@ -1,7 +1,6 @@
-import java.time.DateTimeException;
+package exemplos;
+
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,12 +14,12 @@ public class Aplicacao {
 
         List<Pessoa> elenco = Arrays.asList(ator, ator1, ator2);
 
-        //List<Pessoa> elenco = new ArrayList<Pessoa>();
-        //elenco.add(new Ator("hfdusi", 52, 5, Genero.MASCULINO)); //outra forma de fazer a lista
+        //List<exemplos.Pessoa> elenco = new ArrayList<exemplos.Pessoa>();
+        //elenco.add(new exemplos.Ator("hfdusi", 52, 5, exemplos.Genero.MASCULINO)); //outra forma de fazer a lista
 
         Filme filmeInterstelar = new Filme("Interstelar", "Melhor filme", 120,
                 2014, 5, diretor, elenco);
-        //Filme filmeBatman = new Filme("Batman", "Melhor filme ever", 90, 2008,5,diretor);
+        //exemplos.Filme filmeBatman = new exemplos.Filme("Batman", "Melhor filme ever", 90, 2008,5,diretor);
 
         filmeInterstelar.creditos();
         //filmeBatman.exibir();

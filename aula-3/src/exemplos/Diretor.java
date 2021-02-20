@@ -1,3 +1,5 @@
+package exemplos;
+
 import java.time.LocalDate;
 
 public class Diretor extends Pessoa {

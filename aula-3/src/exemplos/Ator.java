@@ -1,4 +1,5 @@
-import java.lang.reflect.GenericSignatureFormatError;
+package exemplos;
+
 import java.time.LocalDate;
 
 public class Ator extends Pessoa{
