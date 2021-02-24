@@ -39,6 +39,8 @@ public class ContaCorrente extends ClasseAbstrata {
             if (getSaldo() >= valor) {
                 setSaldo(getSaldo()-valor);
                 contaDestino.depositar(valor);
+                //FIXME ADICIONAR EM UMA LISTA A TRANSAÇÃO
+
                 System.out.println("Transferência realizada no valor  de" + valor + " da Conta Corrente "
                         + getInstituicaoBancaria() +
                         "para conta corrente " + contaDestino.getInstituicaoBancaria());
@@ -63,7 +65,7 @@ public class ContaCorrente extends ClasseAbstrata {
 
     @Override
     public String toString() {
-        return "Conta Corrente" + getInstituicaoBancaria() + " " +
+        return "Conta Corrente " + getInstituicaoBancaria() + " " +
                 getNumeroContaCorrente();
     }
 }
