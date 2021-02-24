@@ -1,18 +1,20 @@
 package br.com.banco.desgraca.domain;
 
+import br.com.banco.desgraca.Data;
 import br.com.banco.desgraca.domain.conta.ContaBancaria;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 public class Transacao {
 
-    private TipoTransacao tipoTransacao;       //limitar criar um enum
-    private LocalDate DataTransferencia;        //ajeitar data corretamente
+    private TipoTransacao tipoTransacao;
+    private Data DataTransacao;
     private double valor;
 
-    public Transacao(TipoTransacao tipoTransacao, LocalDate dataTransferencia, double valor) {
+    public Transacao(TipoTransacao tipoTransacao, Data dataTransacao, double valor) {
         this.tipoTransacao = tipoTransacao;
-        DataTransferencia = dataTransferencia;
+        DataTransacao = dataTransacao;
         this.valor = valor;
     }
 
@@ -20,12 +22,12 @@ public class Transacao {
         return tipoTransacao;
     }
 
-    public LocalDate getDataTransferencia() {
-        return DataTransferencia;
+    public Data getDataTransacao() {
+        return DataTransacao;
     }
 
-    public double getValor() {
-        return valor;
+    public String getValor() {
+        return DecimalFormat.getCurrencyInstance().format(valor);
     }
 
     public void registroTransacao() {

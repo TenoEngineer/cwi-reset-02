@@ -2,90 +2,68 @@ package br.com.banco.desgraca.domain.conta;
 
 import br.com.banco.desgraca.domain.InstituicaoBancaria;
 import br.com.banco.desgraca.domain.Transacao;
+import br.com.banco.desgraca.exception.ArgumentoIlegal;
+import br.com.banco.desgraca.exception.SaldoInsuficienteException;
 
 import java.time.LocalDate;
 
-public class ContaCorrente implements ContaBancaria {
+public class ContaCorrente extends ClasseAbstrata {
 
-
-    private int numeroContaCorrente;
-    private InstituicaoBancaria instituicaoBancaria;
     private Transacao transacao;
-    private double saldo;
-
 
     public ContaCorrente(int numeroContaCorrente, InstituicaoBancaria instituicaoBancaria, double saldo) {
-        this.numeroContaCorrente = numeroContaCorrente;
-        this.instituicaoBancaria = instituicaoBancaria;
-        this.saldo = saldo;
-    }
-
-    @Override
-    public InstituicaoBancaria getInstituicaoBancaria() {
-        return instituicaoBancaria;
-    }
-
-    @Override
-    public Double consultarSaldo() {
-        return this.saldo;
-    }
-
-    @Override
-    public void depositar(Double valor) {
-        this.saldo += valor;
+        super(numeroContaCorrente, instituicaoBancaria, saldo);
     }
 
     @Override
     public void sacar(Double valor) {
-        if (valor % 5 != 0) {
-            System.out.println("Você não pode sacar esse valor! Apenas divisíveis por 5");//FIXME exception
+        if ( getSaldo() >= valor) {
+            if (valor % 5 != 0) {
+                throw new ArgumentoIlegal();
+            } else {
+                setSaldo(getSaldo()-valor);
+                transacao.registroTransacao();
+            }
         } else {
-            this.saldo -= valor;
+            throw new SaldoInsuficienteException();
         }
     }
 
-
     @Override
-    public void transferir(Double valor, ContaBancaria contaDestino) {
+    public void transferir(Double valor, ContaBancaria contaDestino) {      //FIXME COMO FAZER O REGISTRO EM CONTAS DIFERENTES? registrando uma transação de saída na conta de origem e uma de entrada na conta de destino.
 
-        double saldoComTaxa = this.saldo + valor * 0.01;
-        boolean mesmoBanco = this.instituicaoBancaria == contaDestino.getInstituicaoBancaria();
+        double saldoComTaxa = getSaldo() + valor * 0.01;
+        boolean mesmoBanco = getInstituicaoBancaria() == contaDestino.getInstituicaoBancaria();
 
         if (mesmoBanco) {        //logica para o mesmo banco
-            if (this.saldo >= valor) {
-                this.saldo -= valor;
+            if (getSaldo() >= valor) {
+                setSaldo(getSaldo()-valor);
                 contaDestino.depositar(valor);
-                System.out.println("Transferindo valor " + valor + " da Conta Corrente " + this.instituicaoBancaria +
+                System.out.println("Transferência realizada no valor  de" + valor + " da Conta Corrente "
+                        + getInstituicaoBancaria() +
                         "para conta corrente " + contaDestino.getInstituicaoBancaria());
-            } else {//FIXME exception
+            } else { throw new SaldoInsuficienteException();
             }
         } else {        //para bancos diferentes
             if (saldoComTaxa >= valor) {
-                this.saldo -= valor;
+                setSaldo(getSaldo()-valor);
                 contaDestino.depositar(valor);
-                System.out.println("Transferindo valor " + valor + " da Conta Corrente " + this.instituicaoBancaria +
+                System.out.println("Transferência realizada no valor  de" + valor + " da Conta Corrente "
+                        + getInstituicaoBancaria() +
                         "para conta corrente " + contaDestino.getInstituicaoBancaria());
-            } // FIXME exception
+            } throw new SaldoInsuficienteException();
         }
 
     }
 
     @Override
-    public void exibirExtrato(LocalDate inicio, LocalDate fim) {
+    public void exibirExtrato(LocalDate inicio, LocalDate fim) { //TODO FAZER UMA LISTA DE REGISTROS OU CRIAR UMA CLASSE OU NENHUM DOS DOIS??
 
-    }
-
-    public int getNumeroContaCorrente() {
-        return numeroContaCorrente;
-    }
-
-    public double getSaldo() {
-        return saldo;
     }
 
     @Override
-    public String toString() { //FIXME ARRUMAR TOSTRING
-        return "Transferindo valor " + valor + " da Conta Corrente " + this.instituicaoBancaria +
-                "para conta corrente " + contaDestino.getInstituicaoBancaria();
+    public String toString() {
+        return "Conta Corrente" + getInstituicaoBancaria() + " " +
+                getNumeroContaCorrente();
     }
 }
