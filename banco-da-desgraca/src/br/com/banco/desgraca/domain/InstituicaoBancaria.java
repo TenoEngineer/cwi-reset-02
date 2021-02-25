@@ -8,13 +8,13 @@ public enum InstituicaoBancaria {
     ITAU("Itaú"),
     NUBANK("Nubank");
 
-    private String instituicaoBancaria;
+    private String banco;
 
-    InstituicaoBancaria(String instituicaoBancaria) {
-        this.instituicaoBancaria = instituicaoBancaria;
+    InstituicaoBancaria(String banco) {
+        this.banco = banco;
     }
 
-    public String getInstituicaoBancaria() {
-        return instituicaoBancaria;
+    public String getBanco() {
+        return banco;
     }
 }

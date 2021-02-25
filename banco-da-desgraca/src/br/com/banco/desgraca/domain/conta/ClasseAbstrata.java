@@ -1,17 +1,18 @@
 package br.com.banco.desgraca.domain.conta;
 
 import br.com.banco.desgraca.domain.InstituicaoBancaria;
+import br.com.banco.desgraca.domain.TipoTransacao;
 import br.com.banco.desgraca.domain.Transacao;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 public abstract class ClasseAbstrata implements ContaBancaria{
 
-
     private int numeroContaCorrente;
     private InstituicaoBancaria instituicaoBancaria;
     private double saldo;
-
+    private TipoTransacao tipoTransacao;
 
     public ClasseAbstrata(int numeroContaCorrente, InstituicaoBancaria instituicaoBancaria, double saldo) {
         this.numeroContaCorrente = numeroContaCorrente;
@@ -31,6 +32,13 @@ public abstract class ClasseAbstrata implements ContaBancaria{
         this.saldo = saldo;
     }
 
+    public void textoTransferencia(){
+        System.out.println( tipoTransacao.getTipo() + " realizada no valor de " + DecimalFormat.getCurrencyInstance().format(valor)
+                + " da Conta Corrente "
+                + getInstituicaoBancaria().getBanco() +
+                " para Conta " + contaDestino.getInstituicaoBancaria().getBanco());
+    }
+
     @Override
     public InstituicaoBancaria getInstituicaoBancaria() {
         return instituicaoBancaria;
@@ -38,17 +46,18 @@ public abstract class ClasseAbstrata implements ContaBancaria{
 
     @Override
     public Double consultarSaldo() {
-        return null;
+        System.out.println(saldo);
+        return getSaldo();
     }
 
     @Override
     public void depositar(Double valor) {
-
+        setSaldo(getSaldo()+valor);
     }
 
     @Override
     public void sacar(Double valor) {
-
+        setSaldo(getSaldo()-valor);
     }
 
     @Override
@@ -60,4 +69,5 @@ public abstract class ClasseAbstrata implements ContaBancaria{
     public void exibirExtrato(LocalDate inicio, LocalDate fim) {
 
     }
+
 }

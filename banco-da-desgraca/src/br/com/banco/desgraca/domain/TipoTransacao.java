@@ -6,13 +6,13 @@ public enum TipoTransacao {
     TRANSFERENCIA("Transferência Bancária"),
     DEPOSITO("Depósito");
 
-private String tipoTransicao;
+private String tipo;
 
-    TipoTransacao(String tipoTransicao) {
-        this.tipoTransicao = tipoTransicao;
+    TipoTransacao(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getTipoTransicao() {
-        return tipoTransicao;
+    public String getTipo() {
+        return tipo;
     }
 }

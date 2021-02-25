@@ -1,15 +1,21 @@
 package br.com.banco.desgraca.domain.conta;
 
 import br.com.banco.desgraca.domain.InstituicaoBancaria;
+import br.com.banco.desgraca.domain.TipoTransacao;
 import br.com.banco.desgraca.domain.Transacao;
 import br.com.banco.desgraca.exception.ArgumentoIlegal;
 import br.com.banco.desgraca.exception.SaldoInsuficienteException;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
+
+import static br.com.banco.desgraca.domain.TipoTransacao.SAQUE;
 
 public class ContaCorrente extends ClasseAbstrata {
 
     private Transacao transacao;
+    private double TAXA_TRANFERENCIA = 0.01;
+    private TipoTransacao tipoTransacao;
 
     public ContaCorrente(int numeroContaCorrente, InstituicaoBancaria instituicaoBancaria, double saldo) {
         super(numeroContaCorrente, instituicaoBancaria, saldo);
@@ -32,30 +38,27 @@ public class ContaCorrente extends ClasseAbstrata {
     @Override
     public void transferir(Double valor, ContaBancaria contaDestino) {      //FIXME COMO FAZER O REGISTRO EM CONTAS DIFERENTES? registrando uma transação de saída na conta de origem e uma de entrada na conta de destino.
 
-        double saldoComTaxa = getSaldo() + valor * 0.01;
-        boolean mesmoBanco = getInstituicaoBancaria() == contaDestino.getInstituicaoBancaria();
+        get = TipoTransacao.TRANSFERENCIA;
+        double saldoComTaxa = getSaldo() + valor * TAXA_TRANFERENCIA;
+        boolean mesmoBanco = getInstituicaoBancaria().equals(contaDestino.getInstituicaoBancaria());
 
         if (mesmoBanco) {        //logica para o mesmo banco
             if (getSaldo() >= valor) {
                 setSaldo(getSaldo()-valor);
                 contaDestino.depositar(valor);
                 //FIXME ADICIONAR EM UMA LISTA A TRANSAÇÃO
-
-                System.out.println("Transferência realizada no valor  de" + valor + " da Conta Corrente "
-                        + getInstituicaoBancaria() +
-                        "para conta corrente " + contaDestino.getInstituicaoBancaria());
+                exibirExtrato();
             } else { throw new SaldoInsuficienteException();
             }
         } else {        //para bancos diferentes
             if (saldoComTaxa >= valor) {
                 setSaldo(getSaldo()-valor);
                 contaDestino.depositar(valor);
-                System.out.println("Transferência realizada no valor  de" + valor + " da Conta Corrente "
-                        + getInstituicaoBancaria() +
-                        "para conta corrente " + contaDestino.getInstituicaoBancaria());
+                System.out.println("Transferência realizada no valor de " + valor + " da Conta Corrente "
+                        + getInstituicaoBancaria().getBanco() +
+                        " para Conta " + contaDestino.getInstituicaoBancaria().getBanco());
             } throw new SaldoInsuficienteException();
         }
-
     }
 
     @Override
