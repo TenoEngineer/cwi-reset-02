@@ -14,8 +14,7 @@ import static br.com.banco.desgraca.domain.TipoTransacao.SAQUE;
 public class ContaCorrente extends ClasseAbstrata {
 
     private Transacao transacao;
-    private double TAXA_TRANFERENCIA = 0.01;
-    private TipoTransacao tipoTransacao;
+    private static final double TAXA_TRANFERENCIA = 0.01;
 
     public ContaCorrente(int numeroContaCorrente, InstituicaoBancaria instituicaoBancaria, double saldo) {
         super(numeroContaCorrente, instituicaoBancaria, saldo);
@@ -28,6 +27,7 @@ public class ContaCorrente extends ClasseAbstrata {
                 throw new ArgumentoIlegal();
             } else {
                 setSaldo(getSaldo()-valor);
+                trancacoes.add(new Transacao(TipoTransacao.SAQUE, transacao.getDataTransacao(), valor));
                 transacao.registroTransacao();
             }
         } else {
@@ -38,7 +38,7 @@ public class ContaCorrente extends ClasseAbstrata {
     @Override
     public void transferir(Double valor, ContaBancaria contaDestino) {      //FIXME COMO FAZER O REGISTRO EM CONTAS DIFERENTES? registrando uma transação de saída na conta de origem e uma de entrada na conta de destino.
 
-        get = TipoTransacao.TRANSFERENCIA;
+        String tipoTransacao = TipoTransacao.TRANSFERENCIA.getTipo();
         double saldoComTaxa = getSaldo() + valor * TAXA_TRANFERENCIA;
         boolean mesmoBanco = getInstituicaoBancaria().equals(contaDestino.getInstituicaoBancaria());
 
@@ -47,7 +47,11 @@ public class ContaCorrente extends ClasseAbstrata {
                 setSaldo(getSaldo()-valor);
                 contaDestino.depositar(valor);
                 //FIXME ADICIONAR EM UMA LISTA A TRANSAÇÃO
-                exibirExtrato();
+                System.out.println( tipoTransacao + " realizada com sucesso no valor de " + DecimalFormat.getCurrencyInstance().format(valor)
+                        + " da Conta Corrente "
+                        + getInstituicaoBancaria().getBanco() + " " + getNumeroContaCorrente() +
+                        " para Conta " + contaDestino.getInstituicaoBancaria().getBanco() + " " +
+                        contaDestino.getNu);; //FIXME COMO COLOCO O NUMERO DA CONTA QUE RECEBEU A TRANSACAO??
             } else { throw new SaldoInsuficienteException();
             }
         } else {        //para bancos diferentes

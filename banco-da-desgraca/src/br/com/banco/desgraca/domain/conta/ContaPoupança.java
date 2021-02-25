@@ -9,10 +9,10 @@ import br.com.banco.desgraca.exception.SaldoInsuficienteException;
 public class ContaPoupança extends ClasseAbstrata {
 
     private Transacao transacao;
-    private double TAXA_SAQUE = 0.02;
-    private double VALOR_MINIMO_SAQUE = 50;
-    private double TAXA_TRANSFERENCIA = 0.005;
-    private double TAXA_TRANSFENCIA_BANCO_DEFERENTE = 0.01;
+    private static final double TAXA_SAQUE = 0.02;
+    private static final double VALOR_MINIMO_SAQUE = 50;
+    private static final double TAXA_TRANSFERENCIA = 0.005;
+    private static final double TAXA_TRANSFENCIA_BANCO_DEFERENTE = 0.01;
 
 
     public ContaPoupança(int numeroContaCorrente, InstituicaoBancaria instituicaoBancaria, double saldo) {

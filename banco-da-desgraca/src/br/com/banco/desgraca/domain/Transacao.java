@@ -31,6 +31,6 @@ public class Transacao {
     }
 
     public void registroTransacao() {
-        System.out.println("Transação do tipo " + this.tipoTransacao + "realizado ");
+        System.out.println("Transação do tipo " + this.tipoTransacao.getTipo() + "realizado ");
     }
 }

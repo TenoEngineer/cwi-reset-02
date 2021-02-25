@@ -6,6 +6,8 @@ import br.com.banco.desgraca.domain.Transacao;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class ClasseAbstrata implements ContaBancaria{
 
@@ -32,12 +34,14 @@ public abstract class ClasseAbstrata implements ContaBancaria{
         this.saldo = saldo;
     }
 
-    public void textoTransferencia(){
+    List<Transacao> trancacoes = new ArrayList<>();
+
+    /*public void textoTransferencia(){ //FIXME VER ISSO MELHOR - COMO CRIAR UM TEXTO PADRÃO? OU NÃO DEVE FAZER ISSO?
         System.out.println( tipoTransacao.getTipo() + " realizada no valor de " + DecimalFormat.getCurrencyInstance().format(valor)
                 + " da Conta Corrente "
                 + getInstituicaoBancaria().getBanco() +
                 " para Conta " + contaDestino.getInstituicaoBancaria().getBanco());
-    }
+    }*/
 
     @Override
     public InstituicaoBancaria getInstituicaoBancaria() {
@@ -46,8 +50,8 @@ public abstract class ClasseAbstrata implements ContaBancaria{
 
     @Override
     public Double consultarSaldo() {
-        System.out.println(saldo);
-        return getSaldo();
+        System.out.println(DecimalFormat.getCurrencyInstance().format(saldo));
+        return saldo;
     }
 
     @Override

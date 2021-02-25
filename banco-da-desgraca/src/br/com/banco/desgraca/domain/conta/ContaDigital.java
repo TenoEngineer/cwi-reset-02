@@ -9,7 +9,7 @@ import br.com.banco.desgraca.exception.SaldoInsuficienteException;
 public class ContaDigital extends ClasseAbstrata {
 
     private Transacao transacao;
-    private double VALOR_MINIMO_SAQUE = 10;
+    private static final double VALOR_MINIMO_SAQUE = 10;
 
     public ContaDigital(int numeroContaCorrente, InstituicaoBancaria instituicaoBancaria, double saldo) {
         super(numeroContaCorrente, instituicaoBancaria, saldo);
