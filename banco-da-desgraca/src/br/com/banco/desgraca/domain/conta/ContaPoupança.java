@@ -1,14 +1,17 @@
 package br.com.banco.desgraca.domain.conta;
 
+import br.com.banco.desgraca.Data;
 import br.com.banco.desgraca.domain.InstituicaoBancaria;
+import br.com.banco.desgraca.domain.TipoTransacao;
 import br.com.banco.desgraca.domain.Transacao;
 import br.com.banco.desgraca.exception.ArgumentoIlegal;
 import br.com.banco.desgraca.exception.BancoIndisponivel;
 import br.com.banco.desgraca.exception.SaldoInsuficienteException;
 
+import java.text.DecimalFormat;
+
 public class ContaPoupança extends ClasseAbstrata {
 
-    private Transacao transacao;
     private static final double TAXA_SAQUE = 0.02;
     private static final double VALOR_MINIMO_SAQUE = 50;
     private static final double TAXA_TRANSFERENCIA = 0.005;
@@ -28,24 +31,28 @@ public class ContaPoupança extends ClasseAbstrata {
 
     @Override
     public InstituicaoBancaria getInstituicaoBancaria() {
-        if (getInstituicaoBancaria() == InstituicaoBancaria.NUBANK) {
-            throw new BancoIndisponivel();
-        } else {
-            return super.getInstituicaoBancaria();
-        }
+        return super.getInstituicaoBancaria();
     }
 
     @Override
     public void sacar(Double valor) {
 
+        Transacao transacao = new Transacao(TipoTransacao.SAQUE, Data.getDataTransacao(), valor);
+        String tipoTransacao = TipoTransacao.SAQUE.getTipo();
         double saldoComTaxa = getSaldo() + valor * TAXA_SAQUE;
+        String imprimirTexto = tipoTransacao + " realizado com sucesso no valor de "
+                + DecimalFormat.getCurrencyInstance().format(valor)
+                + " da Conta Poupança "
+                + getInstituicaoBancaria().getBanco() + " " + getNumeroContaCorrente();
 
         if (saldoComTaxa >= valor) {
             if (valor < VALOR_MINIMO_SAQUE) {
                 throw new ArgumentoIlegal();
             } else {
                 setSaldo(getSaldo() - valor);
-                transacao.registroTransacao();
+                trancacoes.add(transacao);
+                System.out.println(imprimirTexto);
+                ;
             }
         } else {
             throw new SaldoInsuficienteException();
@@ -58,15 +65,21 @@ public class ContaPoupança extends ClasseAbstrata {
         double saldoComTaxa = getSaldo() + valor * TAXA_TRANSFERENCIA;
         double saldoComTaxaDiferente = getSaldo() + valor * TAXA_TRANSFENCIA_BANCO_DEFERENTE;
         boolean mesmoBanco = getInstituicaoBancaria() == contaDestino.getInstituicaoBancaria();
+        Transacao transacao = new Transacao(TipoTransacao.SAQUE, Data.getDataTransacao(), valor);
+        String tipoTransacao = TipoTransacao.TRANSFERENCIA.getTipo();
+        String imprimirTexto = tipoTransacao + " realizada com sucesso no valor de "
+                + DecimalFormat.getCurrencyInstance().format(valor)
+                + " da Conta Corrente "
+                + getInstituicaoBancaria().getBanco() + " " + getNumeroContaCorrente()
+                + " para Conta " + contaDestino.getInstituicaoBancaria().getBanco() + " "
+                + ((ClasseAbstrata) contaDestino).getNumeroContaCorrente();
 
         if (mesmoBanco) {        //logica para o mesmo banco
             if (saldoComTaxa >= valor) {
                 setSaldo(getSaldo() - valor);
                 contaDestino.depositar(valor);
-                //FIXME ADICIONAR EM UMA LISTA A TRANSAÇÃO
-                System.out.println("Transferência realizada no valor de " + valor + " da Conta Corrente "
-                        + getInstituicaoBancaria().getBanco() +
-                        " para Conta " + contaDestino.getInstituicaoBancaria().getBanco());
+                trancacoes.add(transacao);
+                System.out.println(imprimirTexto);
             } else {
                 throw new SaldoInsuficienteException();
             }
@@ -74,9 +87,9 @@ public class ContaPoupança extends ClasseAbstrata {
             if (saldoComTaxaDiferente >= valor) {
                 setSaldo(getSaldo() - valor);
                 contaDestino.depositar(valor);
-                System.out.println("Transferência realizada no valor de " + valor + " da Conta Poupança "
-                        + getInstituicaoBancaria().getBanco() +
-                        " para Conta " + contaDestino.getInstituicaoBancaria().getBanco());
+                trancacoes.add(transacao);
+                transacao.registroTransacao();
+                System.out.println(imprimirTexto);
             }
             throw new SaldoInsuficienteException();
         }

@@ -6,6 +6,8 @@ import br.com.banco.desgraca.domain.conta.ContaDigital;
 import br.com.banco.desgraca.domain.conta.ContaPoupança;
 
 import java.awt.*;
+import java.time.LocalDate;
+import java.util.Arrays;
 
 public class BancoDaDesgraca {
 
@@ -21,5 +23,8 @@ public class BancoDaDesgraca {
         heitor.consultarSaldo();
         heitor.sacar(5000.00);
         heitor.consultarSaldo();
+        heitor.exibirExtrato(LocalDate.parse("2020-01-01"),null);
+
     }
+
 }

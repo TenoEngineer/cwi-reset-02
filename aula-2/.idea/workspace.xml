@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d438ce30-785a-4a18-8a63-035e81fe4c4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../aula-3/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../aula-3/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../aula-3/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../aula-3/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../aula-3/aula-3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicios-aula-02/src/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Aplicacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicios-aula-02/src/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercicios-aula-02/src/Filme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/BancoDaDesgraca.class" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/BancoDaDesgraca.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/Transacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/Transacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/conta/ClasseAbstrata.class" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/conta/ClasseAbstrata.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/conta/ContaCorrente.class" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/conta/ContaCorrente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/conta/ContaDigital.class" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/conta/ContaDigital.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/conta/ContaPoupança.class" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/out/production/banco-da-desgraca/br/com/banco/desgraca/domain/conta/ContaPoupança.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/BancoDaDesgraca.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/BancoDaDesgraca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/Transacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/Transacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ClasseAbstrata.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ClasseAbstrata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ContaBancaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ContaBancaria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ContaDigital.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ContaDigital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ContaPoupança.java" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-da-desgraca/src/br/com/banco/desgraca/domain/conta/ContaPoupança.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../exercicios-aula-02/src/exercicio/Filme.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
