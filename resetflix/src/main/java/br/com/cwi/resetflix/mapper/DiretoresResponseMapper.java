@@ -9,11 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-public class DiretoresResponseMapper implements Function<DiretorEntity, DiretoresResponse> {
+public class DiretoresResponseMapper{
 
-    @Override
-    public DiretoresResponse apply(final DiretorEntity diretor) {
-        return new DiretoresResponse(diretor.getId(), diretor.getNome());
+    public List<DiretoresResponse> apply(final List<DiretorEntity> diretores) {
+        List<DiretoresResponse> diretoresResponses = new ArrayList<>();
+
+        for (DiretorEntity diretorEntity : diretores) {
+
+            DiretoresResponse diretorResponse = new DiretoresResponse(diretorEntity.getId(),
+                    diretorEntity.getNome());
+
+            diretoresResponses.add(diretorResponse);
+        }
+
+        return diretoresResponses;
     }
 }
 

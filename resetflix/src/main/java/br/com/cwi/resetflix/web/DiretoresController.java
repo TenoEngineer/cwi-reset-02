@@ -1,11 +1,12 @@
 package br.com.cwi.resetflix.web;
 
+import br.com.cwi.resetflix.request.CriarDiretorRequest;
+import br.com.cwi.resetflix.response.ConsultarDetalhesDiretorResponse;
 import br.com.cwi.resetflix.response.DiretoresResponse;
 import br.com.cwi.resetflix.service.DiretoresService;
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +22,13 @@ public class DiretoresController {
         return diretoresService.getDiretores();
     }
 
+    @GetMapping("/{id}")
+    public ConsultarDetalhesDiretorResponse getDiretorbyId(@PathVariable("id") final Long id){
+        return diretoresService.getDiretorById(id);
+    }
+
+    @PostMapping
+    public Long criarDiretor(@RequestBody final CriarDiretorRequest request){
+        return diretoresService.criarDiretor(request);
+    }
 }

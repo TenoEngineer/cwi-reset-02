@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import br.com.cwi.resetflix.mapper.AtorEntityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,29 +25,29 @@ public class AtoresService {
 
     static AtoresResponseMapper ATORES_RESPONSE_MAPPER = new AtoresResponseMapper();
     static ConsultarDetalhesAtorResponseMapper CONSULTAR_DETALHES_ATOR_RESPONSE_MAPPER = new ConsultarDetalhesAtorResponseMapper();
+    static AtoresResponseMapper ATORES_ENTITY_MAPPER = new AtorEntityMapper();
 
     public List<AtoresResponse> getAtores(){
-       List<AtorEntity> atores = atorRepository.findAll();
-       return atores.stream()
-           .map(ator -> ATORES_RESPONSE_MAPPER.apply(ator))
-           .collect(Collectors.toList());
+       final List<AtorEntity> atores = atorRepository.getAtores();
+       return ATORES_ENTITY_MAPPER.apply(atores);
     }
 
-    public ConsultarDetalhesAtorResponse getAtorById(final Long id) {
-        AtorEntity ator = atorRepository.findById(id);
+    public ConsultarDetalhesAtorResponse getAtorById(final Long idAtor) {
+        AtorEntity ator = atorRepository.encontrarAtorPorId(idAtor);
         if(Objects.isNull(ator)){
             throw new NotFoundException("Ator não encontrado");
         }
-        return CONSULTAR_DETALHES_ATOR_RESPONSE_MAPPER.apply(ator);
+        //FIXME FAZER UM ALGORITO PARA PEGAR A LISTA DE FILMES QUE O ATOR ATUOU
+        return CONSULTAR_DETALHES_ATOR_RESPONSE_MAPPER.apply(ator, filmesAtor);
     }
 
     public Long criarAtor(final CriarAtorRequest request) {
         AtorEntity ator = new AtorEntity(request.getNome(), request.getIdFilmes());
-        return atorRepository.save(ator).getId();
+        return atorRepository.criarAtor(ator);
     }
 
     public List<AtoresResponse> getAtoresByIdIn(final List<Long> idAtores) {
-        List<AtorEntity> atores = atorRepository.findAllByIdIn(idAtores);
-        return atores.stream().map(ator -> ATORES_RESPONSE_MAPPER.apply(ator)).collect(Collectors.toList());
+        List<AtorEntity> atores = atorRepository.encontrarTodosAtorePorId(idAtores);
+        return atores.stream().map(ator -> ATORES_RESPONSE_MAPPER.apply(atores)).collect(AtoresResponse);   //FIXME COMO RETORNO UMA LISTA?
     }
 }

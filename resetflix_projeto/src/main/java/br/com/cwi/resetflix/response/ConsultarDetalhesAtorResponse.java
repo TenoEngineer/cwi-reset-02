@@ -1,7 +1,6 @@
 package br.com.cwi.resetflix.response;
 
 import java.util.List;
-import java.util.stream.Collector;
 
 public class ConsultarDetalhesAtorResponse {
 
