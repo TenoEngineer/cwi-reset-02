@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 
 import br.com.cwi.resetflix.entity.AtorEntity;
+import br.com.cwi.resetflix.entity.DiretorEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import br.com.cwi.resetflix.domain.Genero;
@@ -14,6 +16,15 @@ import br.com.cwi.resetflix.entity.FilmeEntity;
 
 @Repository
 public class FilmeRepository {
+
+    @Autowired
+    private AtorEntity atorEntity;
+
+    @Autowired
+    private DiretorEntity diretorEntity;
+
+    @Autowired
+    private DiretoresRepository diretoresRepository;
 
     static List<FilmeEntity> filmes = Collections.singletonList(
             new FilmeEntity(1l, "Interestelar", Genero.FICCAO_CIENTIFICA,
@@ -26,7 +37,7 @@ public class FilmeRepository {
 
     public List<FilmeEntity> acharFilmesAtor(final Long id) {
         List<FilmeEntity> filmesAtor = new ArrayList<>();
-        AtorEntity atorEntity = new AtorEntity(nome_ator, id);   //FIXME COMO PEGO O NOME DO ATOR
+        AtorEntity ator = new AtorEntity(atorEntity.getNome(), atorEntity.getIdsFilmes());
 
         for (FilmeRepository filmeRepository : ator.getId()){
 
@@ -34,4 +45,17 @@ public class FilmeRepository {
         //TODO Filtrar na repository por id de ator
         return filmes;
     }
+
+    public List<FilmeEntity> encontrarFilmesDiretor(final Long id){
+        List<FilmeEntity> filmesDiretor = new ArrayList<>();
+        DiretorEntity diretor = diretoresRepository.encontrarDiretorPorId(id);
+
+        for (FilmeEntity filmeEntity : filmes){
+            if(filmeEntity.getId().equals(diretor){
+                filmesDiretor.add(filmeEntity);
+            }
+        }
+        return filmesDiretor;
+    }
+
 }
