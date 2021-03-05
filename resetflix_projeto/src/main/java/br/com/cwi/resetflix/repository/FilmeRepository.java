@@ -17,45 +17,80 @@ import br.com.cwi.resetflix.entity.FilmeEntity;
 @Repository
 public class FilmeRepository {
 
-    @Autowired
-    private AtorEntity atorEntity;
-
-    @Autowired
-    private DiretorEntity diretorEntity;
-
-    @Autowired
-    private DiretoresRepository diretoresRepository;
-
-    static List<FilmeEntity> filmes = Collections.singletonList(
+    /*static List<FilmeEntity> filmes = Collections.singletonList(
             new FilmeEntity(1l, "Interestelar", Genero.FICCAO_CIENTIFICA,
                     1l, asList(1l))
-    );
+    );*/
+    static List<FilmeEntity> filmes = new ArrayList<>();
+    static Long contadorIds = 1l;
 
     public List<FilmeEntity> getFilmes() {
         return filmes;
     }
 
-    public List<FilmeEntity> acharFilmesAtor(final Long id) {
+    public List<FilmeEntity> acharFilmesAtor(final Long idAtor) {
         List<FilmeEntity> filmesAtor = new ArrayList<>();
-        AtorEntity ator = new AtorEntity(atorEntity.getNome(), atorEntity.getIdsFilmes());
 
-        for (FilmeRepository filmeRepository : ator.getId()){
-
+        for (FilmeEntity filmeEntity : filmes) {
+            if (filmeEntity.getIdsAtores().equals(idAtor)) {
+                filmesAtor.add(filmeEntity);
+            }
         }
-        //TODO Filtrar na repository por id de ator
-        return filmes;
+        return filmesAtor;
     }
 
-    public List<FilmeEntity> encontrarFilmesDiretor(final Long id){
+    public List<FilmeEntity> encontrarFilmesDiretor(final Long idDiretor) {
         List<FilmeEntity> filmesDiretor = new ArrayList<>();
-        DiretorEntity diretor = diretoresRepository.encontrarDiretorPorId(id);
 
-        for (FilmeEntity filmeEntity : filmes){
-            if(filmeEntity.getId().equals(diretor){
+        for (FilmeEntity filmeEntity : filmes) {
+            if (filmeEntity.getIdDiretor().equals(idDiretor)) {
                 filmesDiretor.add(filmeEntity);
             }
         }
         return filmesDiretor;
+    }
+
+    public Long criarFilme(final FilmeEntity filmeSalvar) {
+        if (filmeSalvar.getId() == null) {
+            filmeSalvar.setId(contadorIds);
+            contadorIds++;
+        }
+
+        filmes.add(filmeSalvar);
+
+        return filmeSalvar.getId();
+    }
+
+    public FilmeEntity acharFilmePorId(Long idFilme) {
+
+        for (FilmeEntity filmeEntity : filmes) {
+            if (filmeEntity.getId().equals(idFilme)) {
+                return filmeEntity;
+            }
+        }
+        return null;
+    }
+
+    public List<FilmeEntity> acharAtorPorFilme(final Long idFilme) {
+        List<FilmeEntity> atorFilmes = new ArrayList<>();
+
+        for (FilmeEntity filmeEntity : filmes) {
+            if (filmeEntity.getId().equals(idFilme)) {
+                atorFilmes.add(filmeEntity);
+            }
+        }
+        return atorFilmes;
+    }
+
+    public List<FilmeEntity> acharDiretorPorFilme(final Long idFilme) {
+        List<FilmeEntity> diretorFilme = new ArrayList<>();
+
+        for (FilmeEntity filmeEntity : filmes) {
+            if (filmeEntity.getId().equals(idFilme)) {
+                diretorFilme.add(filmeEntity);
+            }
+        }
+        return diretorFilme;
     }
 
 }

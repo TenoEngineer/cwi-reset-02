@@ -21,6 +21,13 @@ public class FilmeEntity {
         this.idsAtores = idsAtores;
     }
 
+    public FilmeEntity(final String nome,final Genero genero,final Long idDiretor,final List<Long> idsAtores) {
+        this.nome = nome;
+        this.genero = genero;
+        this.idDiretor = idDiretor;
+        this.idsAtores = idsAtores;
+    }
+
     public Long getId() {
         return id;
     }
