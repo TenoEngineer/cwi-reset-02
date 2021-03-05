@@ -39,7 +39,7 @@ public class FilmesService {
         FilmeEntity filmeSalvo = filmeRepository.acharFilmePorId(idFilme);
         //List<FilmeEntity> filmeAtores = filmeRepository.acharAtorPorFilme();
         //List<FilmeEntity> filmeDiretor = filmeRepository.acharDiretorPorFilme();
-        return MAPPER_DETALHES.mapear(filmeSalvo,atorSalvo, diretorSalvo)
+        return MAPPER_DETALHES.mapear(filmeSalvo, atorSalvo, diretorSalvo)
 
     }
 }

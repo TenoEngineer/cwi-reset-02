@@ -28,22 +28,19 @@ public class FilmesController implements FilmesContract {
     @Override
     @GetMapping
     public List<FilmeResponse> getFilmes(@RequestParam(value = "genero", required = false) final Genero genero) {
-        //TODO realizar chamada
-        return Collections.emptyList();
+        return filmesService.getFilmes();
     }
 
     @Override
     @GetMapping("/{id}")
     public ConsultarDetalhesFilmeResponse getFilmeById(@PathVariable("id") final Long id) {
-        //TODO realizar chamada
-        return null;
+        return filmesService.consultarDetalhesFilme(id);
     }
 
     @Override
     @PostMapping
     public Long criarFilme(@RequestBody final CriarFilmeRequest request) {
-        //TODO realizar chamada
-        return null;
+        return filmesService.criarFilme(request);
     }
 
     @Override

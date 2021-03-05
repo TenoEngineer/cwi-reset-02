@@ -14,11 +14,11 @@ import java.util.List;
 public class ConsultarDetalhesFilmeResponseMapper {
 
     public ConsultarDetalhesFilmeResponse mapear(final List<AtorEntity> filmeAtores,
-                                                 final DiretorEntity filmeDiretos,
+                                                 final List<DiretorEntity> filmeDiretor,
                                                  final FilmeEntity filme){
         List<AtoresResponse> filmeResponses = new AtoresResponseMapper().mapear(filmeAtores);
-        DiretoresResponse diretoresResponse = new DiretoresResponseMapper().mapear(filmeDiretos);
-        return new ConsultarDetalhesFilmeResponse(filme.getId(), filme.getNome(), filme.getGenero(), filmeDiretos , filmeResponses)
+        List<DiretoresResponse> diretoresResponse = new DiretoresResponseMapper().mapear(filmeDiretor);
+        return new ConsultarDetalhesFilmeResponse(filme.getId(), filme.getNome(), filme.getGenero(), diretoresResponse , filmeResponses);        //FIXME PROBLEMA COM LIST NOS DIRETORES
 
     }
 }
