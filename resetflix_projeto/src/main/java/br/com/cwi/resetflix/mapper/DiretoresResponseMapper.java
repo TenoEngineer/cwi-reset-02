@@ -1,25 +1,20 @@
 package br.com.cwi.resetflix.mapper;
 
 import br.com.cwi.resetflix.entity.DiretorEntity;
-import br.com.cwi.resetflix.response.AtoresResponse;
 import br.com.cwi.resetflix.response.DiretoresResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DiretoresResponseMapper {
 
-    public List<DiretoresResponse> mapear(final List<DiretorEntity> diretor) {
-        List<DiretoresResponse> diretoresResponses = new ArrayList<>();
+    public DiretoresResponse mapear(final List<DiretorEntity> diretor) {
 
         for (DiretorEntity diretorEntity : diretor) {
-
-            DiretoresResponse diretorResponse = new DiretoresResponse(diretorEntity.getId(),
+            DiretoresResponse diretorFilmes = new DiretoresResponse(diretorEntity.getId(),
                     diretorEntity.getNome());
-
-            diretoresResponses.add(diretorResponse);
+            return diretorFilmes;
         }
 
-        return diretoresResponses;
+        return null;
     }
 }

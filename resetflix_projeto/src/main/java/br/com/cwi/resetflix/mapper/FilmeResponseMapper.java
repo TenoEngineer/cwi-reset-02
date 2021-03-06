@@ -15,7 +15,6 @@ public class FilmeResponseMapper {
             responses.add(new FilmeResponse(filmeEntity.getId(),
                 filmeEntity.getNome(), filmeEntity.getGenero()));
         }
-
         return responses;
     }
 }

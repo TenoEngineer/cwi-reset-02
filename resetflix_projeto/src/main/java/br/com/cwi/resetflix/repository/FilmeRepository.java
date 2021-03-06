@@ -8,6 +8,7 @@ import java.util.List;
 
 import br.com.cwi.resetflix.entity.AtorEntity;
 import br.com.cwi.resetflix.entity.DiretorEntity;
+import br.com.cwi.resetflix.mapper.FilmeResponseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,8 +22,10 @@ public class FilmeRepository {
             new FilmeEntity(1l, "Interestelar", Genero.FICCAO_CIENTIFICA,
                     1l, asList(1l))
     );*/
+
     static List<FilmeEntity> filmes = new ArrayList<>();
     static Long contadorIds = 1l;
+    static FilmeResponseMapper MAPPER_ATOR = new FilmeResponseMapper()
 
     public List<FilmeEntity> getFilmes() {
         return filmes;
@@ -72,14 +75,17 @@ public class FilmeRepository {
     }
 
     public List<FilmeEntity> acharAtorPorFilme(final Long idFilme) {
-        List<FilmeEntity> atorFilmes = new ArrayList<>();
+        List<AtorEntity> atoresFilmes = new ArrayList<>();
 
         for (FilmeEntity filmeEntity : filmes) {
-            if (filmeEntity.getId().equals(idFilme)) {
-                atorFilmes.add(filmeEntity);
+
+            for (filmeEntity.getIdsAtores() : atoresFilmes) {
+                if (idAtores.equals(idFilme)) {
+                    atoresFilmes.add(filmeEntity);
+                }
             }
         }
-        return atorFilmes;
+        return atoresFilmes;
     }
 
     public List<FilmeEntity> acharDiretorPorFilme(final Long idFilme) {

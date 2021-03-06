@@ -11,7 +11,7 @@ public class CriarFilmeRequest {
     private List<Long> idsAtores;
     private Genero genero;
 
-    public CriarFilmeRequest(final String nome, final Long idDiretor, final List<Long> idsAtores, final Genero genero) {
+    public CriarFilmeRequest(String nome, Long idDiretor, List<Long> idsAtores, Genero genero) {
         this.nome = nome;
         this.idDiretor = idDiretor;
         this.idsAtores = idsAtores;

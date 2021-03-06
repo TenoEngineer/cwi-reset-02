@@ -7,7 +7,7 @@ public class CriarAtorRequest {
     private String nome;
     private List<Long> idFilmes;
 
-    public CriarAtorRequest(final String nome, final List<Long> idFilmes) {
+    public CriarAtorRequest(String nome, List<Long> idFilmes) {
         this.nome = nome;
         this.idFilmes = idFilmes;
     }

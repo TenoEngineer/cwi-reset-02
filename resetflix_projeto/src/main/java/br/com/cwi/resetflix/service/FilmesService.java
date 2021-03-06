@@ -1,5 +1,7 @@
 package br.com.cwi.resetflix.service;
 
+import br.com.cwi.resetflix.entity.AtorEntity;
+import br.com.cwi.resetflix.entity.DiretorEntity;
 import br.com.cwi.resetflix.entity.FilmeEntity;
 import br.com.cwi.resetflix.mapper.ConsultarDetalhesDiretorResponseMapper;
 import br.com.cwi.resetflix.mapper.ConsultarDetalhesFilmeResponseMapper;
@@ -37,9 +39,10 @@ public class FilmesService {
 
     public ConsultarDetalhesFilmeResponse consultarDetalhesFilme(final Long idFilme){
         FilmeEntity filmeSalvo = filmeRepository.acharFilmePorId(idFilme);
-        //List<FilmeEntity> filmeAtores = filmeRepository.acharAtorPorFilme();
-        //List<FilmeEntity> filmeDiretor = filmeRepository.acharDiretorPorFilme();
-        return MAPPER_DETALHES.mapear(filmeSalvo, atorSalvo, diretorSalvo)
+        //TODO PRECISO PROCURAR TODOS ATORES QUE POSSUEM ESSE IDFILME
+        List<AtorEntity> atoresFilme = filmeRepository.acharAtorPorFilme(idFilme);
+        DiretorEntity diretorfilme = filmeRepository.acharDiretorPorFilme(idFilme);
+        return MAPPER_DETALHES.mapear(atoresFilme, diretorfilme, filmeSalvo);
 
     }
 }

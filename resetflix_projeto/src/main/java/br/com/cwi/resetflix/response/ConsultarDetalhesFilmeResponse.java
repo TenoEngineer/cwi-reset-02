@@ -9,7 +9,7 @@ public class ConsultarDetalhesFilmeResponse {
     private Long id;
     private String nome;
     private Genero genero;
-    private DiretoresResponse diretor;
+    private DiretoresResponse diretor;        //Troquei para List, entretanto, não sei se está correto.
     private List<AtoresResponse> atores;
 
     public ConsultarDetalhesFilmeResponse(final Long id, final String nome, final Genero genero,
